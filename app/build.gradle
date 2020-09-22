@@ -34,6 +34,8 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation "com.xwray:groupie:2.8.1"
+    implementation 'com.sdsmdg.harjot:materialshadows:1.2.5'
+
     testImplementation 'junit:junit:4.13'
     implementation 'com.marozzi.roundbutton:round-button:1.0.7'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

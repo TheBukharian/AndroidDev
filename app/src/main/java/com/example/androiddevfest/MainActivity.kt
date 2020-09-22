@@ -1,6 +1,8 @@
 package com.example.androiddevfest
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color.TRANSPARENT
 import android.graphics.drawable.AnimationDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.first_page_item.view.*
 import www.sanju.zoomrecyclerlayout.ZoomRecyclerLayout
 
 class MainActivity : AppCompatActivity() {
@@ -50,9 +53,12 @@ class MainActivity : AppCompatActivity() {
 
 
         val adapter=GroupAdapter<GroupieViewHolder>()
-        adapter.add(FirstPageItems())
-        adapter.add(FirstPageItems())
-        adapter.add(FirstPageItems())
+        adapter.add(FirstPageItem6())
+        adapter.add(FirstPageItem5())
+        adapter.add(FirstPageItem4())
+        adapter.add(FirstPageItem3())
+        adapter.add(FirstPageItem2())
+        adapter.add(FirstPageItem1())
         myRecycler.adapter=adapter
 
         val linearLayoutManager = ZoomRecyclerLayout(this)
@@ -64,11 +70,83 @@ class MainActivity : AppCompatActivity() {
         snapHelper.attachToRecyclerView(myRecycler)
         myRecycler.isNestedScrollingEnabled = false
 
+
     }
 }
 
-class FirstPageItems: Item<GroupieViewHolder>(){
+class FirstPageItem1: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        viewHolder.itemView.cardTxt.text="Agenda"
+        viewHolder.itemView.cardDescribtion.text="Get info about our work,\nthat we are going to do soon."
+        viewHolder.itemView.textImg.setImageResource(R.drawable.agenda)
+
+    }
+    override fun getLayout(): Int {
+        return R.layout.first_page_item
+    }
+
+}
+class FirstPageItem2: Item<GroupieViewHolder>(){
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        viewHolder.itemView.cardTxt.text="Speakers"
+        viewHolder.itemView.cardDescribtion.text="Get a list of our speaker teammates."
+        viewHolder.itemView.textImg.setImageResource(R.drawable.speakers)
+
+
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.first_page_item
+    }
+
+}
+class FirstPageItem3: Item<GroupieViewHolder>(){
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        viewHolder.itemView.cardTxt.text="Team"
+        viewHolder.itemView.cardDescribtion.text="See who works at GDG."
+        viewHolder.itemView.textImg.setImageResource(R.drawable.team)
+
+
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.first_page_item
+    }
+
+}
+class FirstPageItem4: Item<GroupieViewHolder>(){
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        viewHolder.itemView.cardTxt.text="Sponsors"
+        viewHolder.itemView.cardDescribtion.text="People financing our program."
+        viewHolder.itemView.textImg.setImageResource(R.drawable.coin)
+
+
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.first_page_item
+    }
+
+}
+class FirstPageItem5: Item<GroupieViewHolder>(){
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        viewHolder.itemView.cardTxt.text="FAQ"
+        viewHolder.itemView.cardDescribtion.text="Frequently Asking Questions"
+
+
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.first_page_item
+    }
+
+}
+class FirstPageItem6: Item<GroupieViewHolder>(){
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        viewHolder.itemView.cardTxt.text="Locate Us"
+        viewHolder.itemView.cardDescribtion.text="Find the location where the event is being held."
+        viewHolder.itemView.textImg.setImageResource(R.drawable.map)
+
 
     }
 
