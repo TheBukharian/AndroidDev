@@ -1,12 +1,14 @@
 package com.example.androiddevfest
 
 import android.content.Intent
+import android.content.Intent.*
 import android.content.res.ColorStateList
 import android.graphics.Color.TRANSPARENT
 import android.graphics.drawable.AnimationDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -57,6 +59,20 @@ class MainActivity : AppCompatActivity() {
                     }else{
                         lightBtn.setImageResource(R.drawable.darklight)
                         lightBtn.tag="0"
+                    }
+                }
+                shareBtn.setOnClickListener{
+                    try{
+                        val shareIntent =Intent(ACTION_SEND)
+                        shareIntent.type = "text/plain"
+                        shareIntent.putExtra(EXTRA_SUBJECT,"GDG APP by TheBukharian")
+                        var shareMessage = "\nLet`s try this GDG application:\n\n"
+                        shareMessage = shareMessage+ "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID+ "\n\n"
+                        shareIntent.putExtra(EXTRA_TEXT,shareMessage)
+                        startActivity(createChooser(shareIntent,"Share with "))
+                    }
+                    catch (e:Exception){
+                        Log.d("MainActivity","Couldn` t load the web site")
                     }
                 }
 
