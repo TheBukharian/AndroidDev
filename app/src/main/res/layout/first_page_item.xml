@@ -3,10 +3,10 @@
 <androidx.cardview.widget.CardView
     android:id="@+id/myCard"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="235dp"
     app:cardElevation="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="30dp"
     app:cardBackgroundColor="#fff"
     android:layout_marginStart="25dp"
@@ -14,6 +14,13 @@
     android:layout_marginBottom="25dp"
     android:layout_marginTop="10dp"
     >
+    <ImageView
+        android:id="@+id/cardImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gradient_1"
+
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,47 +45,30 @@
             android:id="@+id/cardTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/cardLogo"
-            android:fontFamily="monospace"
-            android:gravity="left"
-            android:paddingStart="15dp"
+            android:layout_marginTop="65dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingStart="10dp"
             android:text="AGENDA"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/cardLogo"
+            android:layout_below="@+id/cardTxt"
+            android:layout_marginTop="15dp"
             android:background="#000000"
-            android:layout_marginTop="3dp" />
+            android:text="" />
 
 
-        <ImageView
-            android:id="@+id/textImg"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignBottom="@+id/cardDescribtion"
-            android:layout_marginStart="5dp"
-            android:layout_toEndOf="@+id/cardDescribtion"
 
-            android:src="@drawable/agenda" />
 
-            <TextView
-                android:id="@+id/cardDescribtion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/line"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="20dp"
-                android:paddingStart="10dp"
-                android:text="Get info about our work to do." />
 
 
 
@@ -92,7 +82,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="210dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="0dp"
             android:layout_marginEnd="10dp"
             app:shadowAlpha="0.5">
         <Button

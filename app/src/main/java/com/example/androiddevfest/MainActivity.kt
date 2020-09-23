@@ -50,6 +50,15 @@ class MainActivity : AppCompatActivity() {
             openURL.data = Uri.parse("https://twitter.com/gdgtashkent")
             startActivity(openURL)
         }
+                lightBtn.setOnClickListener{
+                    if (lightBtn.tag!="1") {
+                        lightBtn.setImageResource(R.drawable.light)
+                        lightBtn.tag = "1"
+                    }else{
+                        lightBtn.setImageResource(R.drawable.darklight)
+                        lightBtn.tag="0"
+                    }
+                }
 
 
         val adapter=GroupAdapter<GroupieViewHolder>()
@@ -68,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         linearLayoutManager.stackFromEnd = true
         myRecycler.layoutManager = linearLayoutManager
         snapHelper.attachToRecyclerView(myRecycler)
-        myRecycler.isNestedScrollingEnabled = false
+        myRecycler.isNestedScrollingEnabled = true
 
 
     }
@@ -77,8 +86,8 @@ class MainActivity : AppCompatActivity() {
 class FirstPageItem1: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Agenda"
-        viewHolder.itemView.cardDescribtion.text="Get info about our work,\nthat we are going to do soon."
-        viewHolder.itemView.textImg.setImageResource(R.drawable.agenda)
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_5)
+
 
     }
     override fun getLayout(): Int {
@@ -89,8 +98,7 @@ class FirstPageItem1: Item<GroupieViewHolder>(){
 class FirstPageItem2: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Speakers"
-        viewHolder.itemView.cardDescribtion.text="Get a list of our speaker teammates."
-        viewHolder.itemView.textImg.setImageResource(R.drawable.speakers)
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_1)
 
 
     }
@@ -103,8 +111,8 @@ class FirstPageItem2: Item<GroupieViewHolder>(){
 class FirstPageItem3: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Team"
-        viewHolder.itemView.cardDescribtion.text="See who works at GDG."
-        viewHolder.itemView.textImg.setImageResource(R.drawable.team)
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_2)
+
 
 
     }
@@ -117,8 +125,7 @@ class FirstPageItem3: Item<GroupieViewHolder>(){
 class FirstPageItem4: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Sponsors"
-        viewHolder.itemView.cardDescribtion.text="People financing our program."
-        viewHolder.itemView.textImg.setImageResource(R.drawable.coin)
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_4)
 
 
     }
@@ -131,7 +138,8 @@ class FirstPageItem4: Item<GroupieViewHolder>(){
 class FirstPageItem5: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="FAQ"
-        viewHolder.itemView.cardDescribtion.text="Frequently Asking Questions"
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_3)
+
 
 
     }
@@ -144,9 +152,7 @@ class FirstPageItem5: Item<GroupieViewHolder>(){
 class FirstPageItem6: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Locate Us"
-        viewHolder.itemView.cardDescribtion.text="Find the location where the event is being held."
-        viewHolder.itemView.textImg.setImageResource(R.drawable.map)
-
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_6)
 
     }
 
