@@ -143,7 +143,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="Developed by Asilbek Tilavov."
+        android:text="Dev Fest \n2020"
         android:textColor="#6BFFFFFF"
         android:textSize="15dp"
         android:textStyle="normal" />
