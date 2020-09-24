@@ -16,7 +16,7 @@ class SaveData(context:Context) {
     }
 
     fun loadDarkModeState() : Boolean{
-        val state =sharedPreferences.getBoolean("Dark",true)
+        val state =sharedPreferences.getBoolean("Dark",false)
         return (state)
     }
 

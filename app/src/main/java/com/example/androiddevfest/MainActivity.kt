@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -30,28 +31,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val your_Layout = findViewById<RelativeLayout>(R.id.main_container)
-        val animationDrawable = your_Layout.background as AnimationDrawable
-        animationDrawable.setEnterFadeDuration(4000)
-        animationDrawable.setExitFadeDuration(4000)
+
+
+
 
         saveData = SaveData(this)
         if (saveData.loadDarkModeState()){
-            setTheme(R.style.DarkTheme)
-            lightBtn.setImageResource(R.drawable.darklight)
-            main_container.setBackgroundResource(R.drawable.gradient_dark)
-            actBar.setBackgroundColor(resources.getColor(R.color.CardTextForDark))
-            text.setBackgroundColor(resources.getColor(R.color.CardTextForDark))
-
+            darkSet()
         }else{
-            setTheme(R.style.AppTheme)
-            lightBtn.setImageResource(R.drawable.light)
-            main_container.setBackgroundResource(R.drawable.background)
-            actBar.setBackgroundColor(resources.getColor(R.color.LinearBackground))
-            text.setBackgroundColor(resources.getColor(R.color.LinearBackground))
-
+            darkOff()
+            val your_Layout = findViewById<RelativeLayout>(R.id.main_container)
+            val animationDrawable = your_Layout.background as AnimationDrawable
+            animationDrawable.setEnterFadeDuration(4000)
+            animationDrawable.setExitFadeDuration(4000)
             animationDrawable.start()
-
         }
 
 
@@ -79,13 +72,12 @@ class MainActivity : AppCompatActivity() {
                 lightBtn.setOnClickListener{
                     if (!saveData.loadDarkModeState()) {
                         saveData.setDarkNodeState(true)
-                        animationDrawable.stop()
-                        restartAplication()
+                        darkSet()
 
                     }else{
                         saveData.setDarkNodeState(false)
-                        animationDrawable.stop()
-                        restartAplication()
+                        darkOff()
+                        setAnim()
                     }
                 }
                 shareBtn.setOnClickListener{
@@ -129,12 +121,36 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+    private fun darkSet(){
+        setTheme(R.style.DarkTheme)
+        lightBtn.setImageResource(R.drawable.darklight)
+        main_container.setBackgroundResource(R.drawable.gradient_dark)
+        actBar.setBackgroundColor(resources.getColor(R.color.CardTextForDark))
+        text.setBackgroundColor(resources.getColor(R.color.CardTextForDark))
+    }
+    private fun darkOff(){
+
+        setTheme(R.style.AppTheme)
+        lightBtn.setImageResource(R.drawable.light)
+        main_container.setBackgroundResource(R.drawable.background)
+        actBar.setBackgroundColor(resources.getColor(R.color.LinearBackground))
+        text.setBackgroundColor(resources.getColor(R.color.LinearBackground))
+    }
+    private fun setAnim(){
+        val your_Layout = findViewById<RelativeLayout>(R.id.main_container)
+        val animationDrawable = your_Layout.background as AnimationDrawable
+        animationDrawable.setEnterFadeDuration(4000)
+        animationDrawable.setExitFadeDuration(4000)
+        animationDrawable.start()
+    }
 }
 
 class FirstPageItem1: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Agenda"
         viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_1)
+
 
 
     }
