@@ -3,5 +3,6 @@
     <color name="LinearBackground">#60FFFFFF</color>
     <color name="CardTextForDark">#60000000</color>
     <color name="WhiteText">#FFFFFF</color>
+    <color name="CardText">#7E7E7E</color>
 
 </resources>

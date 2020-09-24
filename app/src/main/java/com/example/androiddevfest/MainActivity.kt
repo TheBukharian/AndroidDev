@@ -1,5 +1,6 @@
 package com.example.androiddevfest
 
+import android.content.Context
 import android.content.Intent
 import android.content.Intent.*
 import android.content.res.ColorStateList
@@ -17,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androiddevfest.Options.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -31,8 +33,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
 
         saveData = SaveData(this)
@@ -116,11 +116,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    fun restartAplication(){
-        val intent = Intent(applicationContext,MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
 
     private fun darkSet(){
         setTheme(R.style.DarkTheme)
@@ -149,7 +144,13 @@ class MainActivity : AppCompatActivity() {
 class FirstPageItem1: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Agenda"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_1)
+//        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_1)
+        viewHolder.itemView.goBtn.setOnClickListener {
+            val context=viewHolder.itemView.context
+            val intent=Intent(context,Agenda::class.java)
+            context.startActivity(intent)
+
+        }
 
 
 
@@ -162,8 +163,12 @@ class FirstPageItem1: Item<GroupieViewHolder>(){
 class FirstPageItem2: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Speakers"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_5)
-
+//        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_5)
+        viewHolder.itemView.goBtn.setOnClickListener {
+            val context=viewHolder.itemView.context
+            val intent=Intent(context, Speakers::class.java)
+            context.startActivity(intent)
+        }
 
     }
 
@@ -175,8 +180,12 @@ class FirstPageItem2: Item<GroupieViewHolder>(){
 class FirstPageItem3: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Team"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_2)
-
+//        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_2)
+        viewHolder.itemView.goBtn.setOnClickListener {
+            val context=viewHolder.itemView.context
+            val intent=Intent(context,Team::class.java)
+            context.startActivity(intent)
+        }
 
 
     }
@@ -189,8 +198,13 @@ class FirstPageItem3: Item<GroupieViewHolder>(){
 class FirstPageItem4: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Sponsors"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_4)
+//        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_4)
+        viewHolder.itemView.goBtn.setOnClickListener {
+            val context=viewHolder.itemView.context
+            val intent=Intent(context, Sponsors::class.java)
+            context.startActivity(intent)
 
+        }
 
     }
 
@@ -203,8 +217,12 @@ class FirstPageItem4: Item<GroupieViewHolder>(){
 class FirstPageItem5: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="FAQ"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_3)
-
+//        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_3)
+        viewHolder.itemView.goBtn.setOnClickListener {
+            val context=viewHolder.itemView.context
+            val intent=Intent(context,Faq::class.java)
+            context.startActivity(intent)
+        }
 
 
     }
@@ -217,8 +235,12 @@ class FirstPageItem5: Item<GroupieViewHolder>(){
 class FirstPageItem6: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Locate Us"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_6)
-
+//        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_6)
+        viewHolder.itemView.goBtn.setOnClickListener {
+            val context=viewHolder.itemView.context
+            val intent=Intent(context,Location::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun getLayout(): Int {

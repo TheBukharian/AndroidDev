@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "415983028261",
+    "firebase_url": "https://dev-fest-c645b.firebaseio.com",
+    "project_id": "dev-fest-c645b",
+    "storage_bucket": "dev-fest-c645b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415983028261:android:0721c7c75ff8862d8e17cc",
+        "android_client_info": {
+          "package_name": "com.example.androiddevfest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415983028261-lm575u7m861tir96bfk9qqu44jd7beco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBk1aoDHor0CW1-OyY3d0SSdOqanhh9MY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415983028261-lm575u7m861tir96bfk9qqu44jd7beco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
