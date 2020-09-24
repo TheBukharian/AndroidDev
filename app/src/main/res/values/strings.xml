@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Android Dev Fest</string>
+    <string name="Settings">Settings</string>
+    <string name="Dark">Dark Mode</string>
+    <string name="LaunchSecond">Launch Second Activity</string>
+    <string name="Agenda">Agenda Background</string>
+    <string name="LinearLayout">Linear</string>
+    <string name="textColor">Home</string>
 </resources>

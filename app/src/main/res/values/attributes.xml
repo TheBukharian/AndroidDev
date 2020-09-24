@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="attr">
+        <attr name="backgroundColor1" format="color"/>
+        <attr name="textBackground" format="color"/>
+        <attr name="barTextColor" format="color"/>
+        <attr name="CardtextColor" format="color"/>
+
+    </declare-styleable>
+</resources>

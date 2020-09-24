@@ -1,10 +1,23 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#9F3535</item>
-        <item name="colorPrimaryDark">#9F3535</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="CardtextColor">@color/WhiteText</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
     </style>
+
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+
+        <item name="CardtextColor">@color/CardTextForDark</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterTransition">@android:anim/fade_in</item>
+        <item name="android:windowExitTransition">@android:anim/fade_out</item>
+    </style>
+
 
 </resources>

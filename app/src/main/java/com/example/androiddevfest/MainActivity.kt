@@ -3,9 +3,11 @@ package com.example.androiddevfest
 import android.content.Intent
 import android.content.Intent.*
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Color.TRANSPARENT
 import android.graphics.drawable.AnimationDrawable
 import android.net.Uri
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,8 +22,11 @@ import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.first_page_item.view.*
 import www.sanju.zoomrecyclerlayout.ZoomRecyclerLayout
+import android.view.View as View1
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var saveData : SaveData
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,15 +34,26 @@ class MainActivity : AppCompatActivity() {
         val animationDrawable = your_Layout.background as AnimationDrawable
         animationDrawable.setEnterFadeDuration(4000)
         animationDrawable.setExitFadeDuration(4000)
-        animationDrawable.start()
 
-        if (lightBtn.tag!="1") {
-            lightBtn.setImageResource(R.drawable.light)
-            lightBtn.tag = "1"
-        }else{
+        saveData = SaveData(this)
+        if (saveData.loadDarkModeState()){
+            setTheme(R.style.DarkTheme)
             lightBtn.setImageResource(R.drawable.darklight)
-            lightBtn.tag="0"
+            main_container.setBackgroundResource(R.drawable.gradient_dark)
+            actBar.setBackgroundColor(resources.getColor(R.color.CardTextForDark))
+            text.setBackgroundColor(resources.getColor(R.color.CardTextForDark))
+
+        }else{
+            setTheme(R.style.AppTheme)
+            lightBtn.setImageResource(R.drawable.light)
+            main_container.setBackgroundResource(R.drawable.background)
+            actBar.setBackgroundColor(resources.getColor(R.color.LinearBackground))
+            text.setBackgroundColor(resources.getColor(R.color.LinearBackground))
+
+            animationDrawable.start()
+
         }
+
 
         //implement links
                 instaBtn.setOnClickListener{
@@ -61,12 +77,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(openURL)
         }
                 lightBtn.setOnClickListener{
-                    if (lightBtn.tag!="1") {
-                        lightBtn.setImageResource(R.drawable.light)
-                        lightBtn.tag = "1"
+                    if (!saveData.loadDarkModeState()) {
+                        saveData.setDarkNodeState(true)
+                        animationDrawable.stop()
+                        restartAplication()
+
                     }else{
-                        lightBtn.setImageResource(R.drawable.darklight)
-                        lightBtn.tag="0"
+                        saveData.setDarkNodeState(false)
+                        animationDrawable.stop()
+                        restartAplication()
                     }
                 }
                 shareBtn.setOnClickListener{
@@ -104,6 +123,11 @@ class MainActivity : AppCompatActivity() {
         myRecycler.isNestedScrollingEnabled = true
 
 
+    }
+    fun restartAplication(){
+        val intent = Intent(applicationContext,MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
 
@@ -158,6 +182,7 @@ class FirstPageItem4: Item<GroupieViewHolder>(){
         return R.layout.first_page_item
     }
 
+
 }
 class FirstPageItem5: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
@@ -183,5 +208,7 @@ class FirstPageItem6: Item<GroupieViewHolder>(){
     override fun getLayout(): Int {
         return R.layout.first_page_item
     }
+
+
 
 }

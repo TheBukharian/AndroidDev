@@ -57,6 +57,7 @@
             android:layout_height="wrap_content"
             android:text="Home"
             android:textSize="40dp"
+            android:textColor="#787878"
             android:gravity="center_vertical"
             android:layout_marginStart="40dp"
             android:fontFamily="sans-serif-light"
@@ -87,6 +88,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/myRecycler"
