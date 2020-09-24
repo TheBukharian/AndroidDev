@@ -31,6 +31,14 @@ class MainActivity : AppCompatActivity() {
         animationDrawable.setExitFadeDuration(4000)
         animationDrawable.start()
 
+        if (lightBtn.tag!="1") {
+            lightBtn.setImageResource(R.drawable.light)
+            lightBtn.tag = "1"
+        }else{
+            lightBtn.setImageResource(R.drawable.darklight)
+            lightBtn.tag="0"
+        }
+
         //implement links
                 instaBtn.setOnClickListener{
             val openURL = Intent(Intent.ACTION_VIEW)
@@ -102,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 class FirstPageItem1: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Agenda"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_5)
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_1)
 
 
     }
@@ -114,7 +122,7 @@ class FirstPageItem1: Item<GroupieViewHolder>(){
 class FirstPageItem2: Item<GroupieViewHolder>(){
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.cardTxt.text="Speakers"
-        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_1)
+        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_5)
 
 
     }

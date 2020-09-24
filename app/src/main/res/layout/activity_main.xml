@@ -9,6 +9,27 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:rotation="90"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:src="@android:drawable/arrow_down_float"
+        android:layout_marginTop="200dp"
+        app:tint="#4BFFFFFF" />
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:rotation="-90"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="10dp"
+        android:src="@android:drawable/arrow_down_float"
+        android:layout_marginTop="200dp"
+        app:tint="#4BFFFFFF"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myRecycler"
@@ -16,6 +37,7 @@
         android:layout_height="265dp"
         android:layout_below="@+id/actBar"
         android:layout_alignParentStart="true"
+        android:background="#00FFFFFF"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
@@ -25,7 +47,7 @@
         android:id="@+id/actBar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#fff"
+        android:background="#60FFFFFF"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
