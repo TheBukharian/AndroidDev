@@ -3,9 +3,9 @@ package com.example.androiddevfest.Adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.androiddevfest.Fragments.AgendaCloudFragment
-import com.example.androiddevfest.Fragments.AgendaMobileFragment
-import com.example.androiddevfest.Fragments.AgendaWebFragment
+import com.example.androiddevfest.Fragments.CloudFragment
+import com.example.androiddevfest.Fragments.MobileFragment
+import com.example.androiddevfest.Fragments.WebFragment
 
 class AgendaAdapter(fm:FragmentManager):FragmentPagerAdapter(fm) {
     override fun getCount(): Int {
@@ -15,14 +15,14 @@ class AgendaAdapter(fm:FragmentManager):FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         return when(position){
             0->{
-                AgendaCloudFragment()
+                CloudFragment()
 
             }
             1->{
-                AgendaMobileFragment()
+                MobileFragment()
             }
             else->{
-                AgendaWebFragment()
+                WebFragment()
             }
         }
     }
