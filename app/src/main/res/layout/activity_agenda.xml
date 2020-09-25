@@ -1,12 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".Options.Agenda">
+    <LinearLayout
+        android:id="@+id/actBar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#F1F1F1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:elevation="7dp"
+        >
+        <ImageButton
+            android:layout_marginStart="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/arrow"
+            android:scaleType="centerInside"
+            android:foregroundGravity="center_vertical"
+            android:background="#F1F1F1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agenda"
+            android:textSize="30dp"
+            android:textColor="#787878"
+            android:gravity="center_vertical"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif-light"
+            />
+        <ImageButton
+            android:id="@+id/lightBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/darklight"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="135dp"
+            android:background="@drawable/bar_btns"
+            android:scaleY="0.7"
+            android:scaleX="0.7"
+            />
+
+        <ImageButton
+            android:id="@+id/shareBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@android:drawable/ic_menu_share"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bar_btns"
+            />
 
 
+    </LinearLayout>
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/actBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        >
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/CardText"
+                app:tabMaxWidth="0dp"
+                android:background="@color/WhiteText"
+                app:tabMode="fixed"
+                app:tabTextColor="#000000" />
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>
