@@ -5,7 +5,11 @@ import android.os.Bundle
 import com.example.androiddevfest.Adapters.AgendaAdapter
 import com.example.androiddevfest.R
 import com.example.androiddevfest.SaveData
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
+import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_agenda.*
+import kotlinx.android.synthetic.main.fragment_agenda_cloud.*
 
 class Agenda : AppCompatActivity() {
     lateinit var saveData: SaveData
@@ -27,4 +31,5 @@ class Agenda : AppCompatActivity() {
 
     }
 }
+
 
