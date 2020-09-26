@@ -43,10 +43,19 @@ class Agenda : AppCompatActivity() {
             if (!saveData.loadDarkModeState()) {
                 saveData.setDarkNodeState(true)
                 darkSet()
+                finish()
+                overridePendingTransition(0, 0)
+                startActivity(intent)
+                overridePendingTransition(0, 0)
+
 
             }else{
                 saveData.setDarkNodeState(false)
                 darkOff()
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         }
 
