@@ -65,38 +65,30 @@
             android:text="" />
 
 
-
-
-
-
-
-
         <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
-            android:layout_width="match_parent"
+            android:layout_width="65dp"
             android:layout_height="65dp"
-            app:shadowOffsetX="10"
-            app:shadowOffsetY="15"
-            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="210dp"
-            android:layout_marginBottom="0dp"
             android:layout_marginEnd="10dp"
-            app:shadowAlpha="0.5">
-        <Button
-            android:id="@+id/goBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="10dp"
-            android:text="GO"
-            android:elevation="55dp"
-            android:textColor="#66494949"
-            android:background="@drawable/circled_angles"
-            />
+            android:layout_marginBottom="0dp"
+            app:shadowAlpha="0.5"
+            app:shadowOffsetX="10"
+            app:shadowOffsetY="15">
+
+            <Button
+                android:id="@+id/goBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/circled_angles"
+                android:elevation="55dp"
+                android:text="GO"
+                android:textColor="#66494949" />
         </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
 
     </RelativeLayout>

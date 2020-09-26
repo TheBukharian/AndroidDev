@@ -117,6 +117,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     private fun darkSet(){
         setTheme(R.style.DarkTheme)
         lightBtn.setImageResource(R.drawable.darklight)

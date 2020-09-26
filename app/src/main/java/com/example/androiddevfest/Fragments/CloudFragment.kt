@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androiddevfest.R
+import com.example.androiddevfest.SaveData
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -19,6 +20,7 @@ class CloudFragment : Fragment() {
     }
 
     private lateinit var viewModel: CloudViewModel
+    lateinit var saveData: SaveData
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +32,7 @@ class CloudFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CloudViewModel::class.java)
+
 
         val adapter = GroupAdapter<GroupieViewHolder>()
         agendaRecycler.adapter=adapter
