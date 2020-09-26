@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse("https://www.instagram.com/gdgtashkent/?hl=ru")
             startActivity(openURL)
+
         }
                 faceBtn.setOnClickListener {
             val openURL = Intent(Intent.ACTION_VIEW)
