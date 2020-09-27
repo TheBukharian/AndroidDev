@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
@@ -12,6 +13,10 @@ import com.example.androiddevfest.Fragments.CloudFragment
 import com.example.androiddevfest.MainActivity
 import com.example.androiddevfest.R
 import com.example.androiddevfest.SaveData
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_agenda.*
 import kotlinx.android.synthetic.main.activity_agenda.actBarAgenda
 import kotlinx.android.synthetic.main.activity_main.*
@@ -61,7 +66,9 @@ class Agenda : AppCompatActivity() {
 
 
 
+
     }
+
     fun themeCheck(){
         saveData = SaveData(this)
         if (saveData.loadDarkModeState()){
