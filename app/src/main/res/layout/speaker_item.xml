@@ -16,7 +16,7 @@
         android:background="#1B777777" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/itemCard2"
+        android:id="@+id/speakerCard2"
         android:layout_width="110dp"
         android:layout_height="200dp"
         android:layout_alignParentStart="true"
@@ -32,7 +32,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/itemImage"
+                android:id="@+id/speakerImage"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_alignParentStart="true"
@@ -45,10 +45,10 @@
                 android:src="@drawable/speakers" />
 
             <TextView
-                android:id="@+id/cloudName"
+                android:id="@+id/speakerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/itemImage"
+                android:layout_alignBottom="@+id/speakerImage"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:paddingStart="5dp"
@@ -62,11 +62,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/staffDescrib"
+                android:id="@+id/speakerDescrib"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
-                android:layout_below="@+id/itemImage"
+                android:layout_below="@+id/speakerImage"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
@@ -83,7 +83,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/itemCard"
+        android:id="@+id/speakerCard"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:elevation="20dp"
@@ -93,7 +93,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_toEndOf="@+id/itemCard2"
+        android:layout_toEndOf="@+id/speakerCard2"
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="15dp">
 
@@ -102,7 +102,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/itemTitle"
+                android:id="@+id/speakerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -122,7 +122,7 @@
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/itemTitle"
+                android:layout_below="@+id/speakerTitle"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="0dp"
@@ -132,7 +132,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:id="@+id/socialsLinear"
+                android:id="@+id/speakerLinear"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_alignParentStart="true"
@@ -143,7 +143,7 @@
                 android:layout_marginBottom="0dp"
                  >
                 <ImageButton
-                    android:id="@+id/instaBtn"
+                    android:id="@+id/instaBtnspeaker"
                     android:layout_width="23dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -152,7 +152,7 @@
                     android:src="@drawable/instagram" />
 
                 <ImageButton
-                    android:id="@+id/faceBtn"
+                    android:id="@+id/faceBtnspeaker"
                     android:layout_width="23dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -163,7 +163,7 @@
                     />
 
                 <ImageButton
-                    android:id="@+id/youtubeBtn"
+                    android:id="@+id/youtubeBtnspeaker"
                     android:layout_width="23dp"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"

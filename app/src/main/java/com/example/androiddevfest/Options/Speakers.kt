@@ -25,13 +25,13 @@ class Speakers : AppCompatActivity() {
 //==================================================================================================
 
         themeCheck()
-        arrowAgenda.setOnClickListener {
+        arrowSpeakers.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
-        lightBtnAgenda.setOnClickListener {
+        lightBtnSpeakers.setOnClickListener {
             if (!saveData.loadDarkModeState()) {
                 saveData.setDarkNodeState(true)
                 darkSet()
@@ -66,23 +66,20 @@ class Speakers : AppCompatActivity() {
     }
     private fun darkSet(){
         setTheme(R.style.DarkTheme)
-        lightBtnAgenda.setImageResource(R.drawable.darklight)
-        tabLayout.setBackgroundResource(R.drawable.gradient_dark)
-        actBarAgenda.setBackgroundResource(R.drawable.act_darkoption)
-        tabLayout.getTabAt(0)!!.setIcon(R.drawable.cloud_black)
-        tabLayout.getTabAt(1)!!.setIcon(R.drawable.phone_black)
-        tabLayout.getTabAt(2)!!.setIcon(R.drawable.web_black)
+        lightBtnSpeakers.setImageResource(R.drawable.darklight)
+        actBarSpeakers.setBackgroundResource(R.drawable.act_darkoption)
+        speakersMain.setBackgroundResource(R.drawable.gradient_dark)
+
 
 
     }
     private fun darkOff(){
         setTheme(R.style.AppTheme)
-        lightBtnAgenda.setImageResource(R.drawable.light)
-        tabLayout.setBackgroundResource(R.drawable.actlight)
-        actBarAgenda.setBackgroundResource(R.drawable.actlight)
-        tabLayout.getTabAt(0)!!.setIcon(R.drawable.baseline_cloud_queue_black_18dp)
-        tabLayout.getTabAt(1)!!.setIcon(R.drawable.baseline_stay_primary_portrait_black_36dp)
-        tabLayout.getTabAt(2)!!.setIcon(R.drawable.baseline_public_black_36dp)
+        lightBtnSpeakers.setImageResource(R.drawable.light)
+        actBarSpeakers.setBackgroundResource(R.drawable.actlight)
+        speakersMain.setBackgroundResource(R.drawable.actlight)
+
+
     }
 
 }
