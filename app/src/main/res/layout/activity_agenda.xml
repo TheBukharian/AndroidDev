@@ -101,7 +101,7 @@
                 app:tabMaxWidth="0dp"
                 android:background="@color/WhiteText"
                 app:tabMode="fixed"
-                app:tabTextColor="#000000" />
+                app:tabTextColor="#787878" />
 
 
         </com.google.android.material.appbar.AppBarLayout>

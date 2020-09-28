@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColor
 import com.example.androiddevfest.Adapters.AgendaAdapter
 import com.example.androiddevfest.Fragments.CloudFragment
 import com.example.androiddevfest.MainActivity
@@ -85,6 +86,7 @@ class Agenda : AppCompatActivity() {
         tabLayout.getTabAt(0)!!.setIcon(R.drawable.cloud_black)
         tabLayout.getTabAt(1)!!.setIcon(R.drawable.phone_black)
         tabLayout.getTabAt(2)!!.setIcon(R.drawable.web_black)
+
 
     }
     private fun darkOff(){
