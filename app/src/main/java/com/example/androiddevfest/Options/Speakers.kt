@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.example.androiddevfest.BuildConfig
 import com.example.androiddevfest.MainActivity
 import com.example.androiddevfest.R
 import com.example.androiddevfest.SaveData
@@ -16,6 +17,7 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_speakers.*
 import kotlinx.android.synthetic.main.speaker_item.*
 import kotlinx.android.synthetic.main.speaker_item.view.*
@@ -59,6 +61,20 @@ class Speakers : AppCompatActivity() {
         }
 
         fetchSpeakers()
+        shareBtnSpeakers.setOnClickListener{
+            try{
+                val shareIntent =Intent(Intent.ACTION_SEND)
+                shareIntent.type = "text/plain"
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT,"GDG APP by TheBukharian")
+                var shareMessage = "\nLet`s try this GDG application:\n\n"
+                shareMessage = shareMessage+ "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID+ "\n\n"
+                shareIntent.putExtra(Intent.EXTRA_TEXT,shareMessage)
+                startActivity(Intent.createChooser(shareIntent, "Share with "))
+            }
+            catch (e:Exception){
+                Log.d("MainActivity","Couldn` t load the web site")
+            }
+        }
 
 
 

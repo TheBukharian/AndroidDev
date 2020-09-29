@@ -270,7 +270,7 @@ class FirstPageItem6: Item<GroupieViewHolder>(){
 //        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_6)
         viewHolder.itemView.goBtn.setOnClickListener {
             val context=viewHolder.itemView.context
-            val intent=Intent(context,Location::class.java)
+            val intent=Intent(context,MapsActivity::class.java)
             context.startActivity(intent)
         }
     }
