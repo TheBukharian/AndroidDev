@@ -26,7 +26,6 @@ class PopupDialog : AppCompatActivity() {
         overridePendingTransition(0, 0)
         setContentView(R.layout.activity_popup_dialog)
 
-        // Get the data
         val bundle = intent.extras
         popupTitle = bundle?.getString("popuptitle", "Title") ?: ""
         popupText = bundle?.getString("popuptext", "Text") ?: ""
@@ -46,7 +45,6 @@ class PopupDialog : AppCompatActivity() {
         }
         if (Build.VERSION.SDK_INT >= 21) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                // If you want dark status bar, set darkStatusBar to true
                 if (darkStatusBar) {
                     this.window.decorView.systemUiVisibility =
                         View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
@@ -56,7 +54,6 @@ class PopupDialog : AppCompatActivity() {
             }
         }
 
-        // Fade animation for the background of Popup Window
         val alpha = 100 //between 0-255
         val alphaColor = ColorUtils.setAlphaComponent(Color.parseColor("#000000"), alpha)
         val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, alphaColor)

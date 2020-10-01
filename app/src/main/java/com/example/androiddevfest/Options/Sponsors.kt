@@ -24,6 +24,8 @@ import kotlinx.android.synthetic.main.expand_item.view.*
 class Sponsors : AppCompatActivity() {
 
     lateinit var saveData: SaveData
+    val adapter = GroupAdapter<GroupieViewHolder>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +85,7 @@ class Sponsors : AppCompatActivity() {
 
 
         fetchSponsors1()
+        fetchSponsors2()
     }
 
     private fun fetchSponsors1() {
@@ -91,7 +94,6 @@ class Sponsors : AppCompatActivity() {
 
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val adapter = GroupAdapter<GroupieViewHolder>()
 
 
                 Log.d("ggg", "${snapshot.toString()}")
@@ -99,7 +101,7 @@ class Sponsors : AppCompatActivity() {
                 val data = snapshot.getValue(SponsorsData::class.java)
                 if (data != null) {
                     adapter.add(Sponsor(data))
-
+                    adapter.add(Text())
 
                 }
                 sponsorsRecycler.adapter = adapter
@@ -112,6 +114,35 @@ class Sponsors : AppCompatActivity() {
 
         })
     }
+    private fun fetchSponsors2() {
+
+        val ref = FirebaseDatabase.getInstance().getReference("/partners/1/logos").limitToFirst(10)
+
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+
+                snapshot.children.forEach {
+                    Log.d("ggg", "${snapshot.toString()}")
+
+                    val data = it.getValue(SponsorsData::class.java)
+                    if (data != null) {
+                        adapter.add(Sponsor(data))
+
+                    }
+                }
+                sponsorsRecycler.adapter = adapter
+            }
+
+
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+    }
+
 
     private fun darkSet() {
         setTheme(R.style.DarkTheme)
@@ -132,7 +163,19 @@ class Sponsors : AppCompatActivity() {
     }
 }
 
+class Text() : Item<GroupieViewHolder>() {
 
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+
+
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.text
+    }
+
+
+}
     class Sponsor(val sponsor: SponsorsData) : Item<GroupieViewHolder>() {
 
         override fun bind(viewHolder: GroupieViewHolder, position: Int) {
