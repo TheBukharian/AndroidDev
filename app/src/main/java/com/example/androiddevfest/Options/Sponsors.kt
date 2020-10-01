@@ -100,6 +100,7 @@ class Sponsors : AppCompatActivity() {
 
                 val data = snapshot.getValue(SponsorsData::class.java)
                 if (data != null) {
+                    adapter.add(TextTwo())
                     adapter.add(Sponsor(data))
                     adapter.add(Text())
 
@@ -123,12 +124,10 @@ class Sponsors : AppCompatActivity() {
 
 
                 snapshot.children.forEach {
-                    Log.d("ggg", "${snapshot.toString()}")
-
+                    Log.d("ggg", "${it.toString()}")
                     val data = it.getValue(SponsorsData::class.java)
                     if (data != null) {
                         adapter.add(Sponsor(data))
-
                     }
                 }
                 sponsorsRecycler.adapter = adapter
@@ -176,14 +175,31 @@ class Text() : Item<GroupieViewHolder>() {
 
 
 }
+class TextTwo() : Item<GroupieViewHolder>() {
+
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+
+
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.text_two
+    }
+
+
+}
     class Sponsor(val sponsor: SponsorsData) : Item<GroupieViewHolder>() {
 
         override fun bind(viewHolder: GroupieViewHolder, position: Int) {
 
 
             viewHolder.itemView.sponsorName.text = sponsor.name
-            Glide.with(viewHolder.itemView.context).load(sponsor.logoUrl)
-                .into(viewHolder.itemView.sponsorLogo)
+
+            //given url picture has too large size, that is why glide giving me the bug while downloading
+
+//            Glide.with(viewHolder.root.context).load("https://storage.googleapis.com/hoverboard-experimental.appspot.com/images/logos/gdg-lviv.svg")
+//                .into(viewHolder.itemView.sponsorLogo)
+
 
             viewHolder.itemView.moreBtn.setOnClickListener {
                 val openURL = Intent(Intent.ACTION_VIEW)
