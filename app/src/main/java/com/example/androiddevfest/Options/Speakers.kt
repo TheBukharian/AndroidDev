@@ -17,9 +17,7 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_speakers.*
-import kotlinx.android.synthetic.main.speaker_item.*
 import kotlinx.android.synthetic.main.speaker_item.view.*
 
 class Speakers : AppCompatActivity() {
@@ -111,7 +109,6 @@ class Speakers : AppCompatActivity() {
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 val adapter = GroupAdapter<GroupieViewHolder>()
-                val socialadapter =GroupAdapter<GroupieViewHolder>()
 
                 p0.children.forEach {
                     val values = it.getValue(SpeakersData::class.java)

@@ -34,7 +34,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
         <activity android:name=".Utils.PopupDialog" />
-        <activity android:name=".Options.Location" />
         <activity android:name=".Options.Faq" />
         <activity android:name=".Options.Team" />
         <activity android:name=".Options.Sponsors" />
