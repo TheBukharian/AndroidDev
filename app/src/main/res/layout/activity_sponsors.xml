@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/sponsorsMain"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Options.Sponsors">
+    tools:context=".Options.Speakers">
+    <RelativeLayout
+        android:id="@+id/actBarSponsors"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#60FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/arrowSponsors"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:backgroundTint="#00FFFFFF"
+            android:layout_marginBottom="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/pageTitleSponsors"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/arrowSponsors"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical"
+            android:text="Sponsors"
+            android:textColor="#787878"
+            android:textSize="30dp" />
+
+        <ImageButton
+            android:id="@+id/lightBtnSponsors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toStartOf="@+id/shareBtnSponsors"
+            android:background="@drawable/bar_btns"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:src="@drawable/light" />
+
+        <ImageButton
+            android:id="@+id/shareBtnSponsors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/bar_btns"
+            android:src="@android:drawable/ic_menu_share" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/blue"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/actBarSponsors"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:background="#0089FF" />
+
+
+
+    <pokercc.android.expandablerecyclerview.StickyHeaderRecyclerViewContainer
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/blue"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        >
+        <pokercc.android.expandablerecyclerview.ExpandableRecyclerView
+            android:id="@+id/expandableRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+
+    </pokercc.android.expandablerecyclerview.StickyHeaderRecyclerViewContainer>
+
+
+
+
+
+
+</RelativeLayout>

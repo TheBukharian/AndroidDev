@@ -118,7 +118,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
             val tashkent = LatLng(41.289574, 69.221680)
-            mMap.addMarker(MarkerOptions().position(tashkent).title("Dev Fest"))
+            mMap.addMarker(MarkerOptions().position(tashkent).title("Dev Fest Tashkent"))
             mMap.moveCamera(CameraUpdateFactory.newLatLng(tashkent))
     }
 }

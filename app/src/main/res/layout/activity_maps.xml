@@ -87,6 +87,8 @@ android:layout_alignParentEnd="true"
 android:layout_marginTop="0dp"
 android:background="#0089FF" />
 
+
+
     <fragment
 
         android:id="@+id/map"
@@ -98,4 +100,19 @@ android:background="#0089FF" />
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
          />
+    <TextView
+        android:id="@+id/mapDescrib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m"
+        android:textColor="#676767"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:text="Google DevFest Hackathon, Tashkent, Chilanzar\nTap the mark to see more.." />
 </RelativeLayout>
