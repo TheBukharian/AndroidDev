@@ -7,6 +7,15 @@ import android.content.SharedPreferences
 class SaveData(context:Context) {
     private var sharedPreferences : SharedPreferences =context.getSharedPreferences("file",MODE_PRIVATE)
 
+    fun setCount(order:Int){
+        val editor=sharedPreferences.edit()
+        editor.putInt("b",order)
+        editor.apply()
+    }
+    fun  getCount():Int{
+        val order =sharedPreferences.getInt("b",0)
+        return (order)
+    }
 
 
     fun setDarkNodeState(state : Boolean){

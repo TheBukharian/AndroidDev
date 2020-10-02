@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.androiddevfest.R
 import com.example.androiddevfest.SaveData
 import kotlinx.android.synthetic.main.cloud_fragment.*
+import kotlinx.android.synthetic.main.web_fragment.*
 
 class WebFragment : Fragment() {
     lateinit var saveData: SaveData
@@ -31,9 +32,9 @@ class WebFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(WebViewModel::class.java)
         saveData = SaveData(this.requireContext())
         if (saveData.loadDarkModeState()){
-            cloudMainBack.setBackgroundResource(R.drawable.gradient_dark)
+            webback.setBackgroundResource(R.drawable.gradient_dark)
         }else{
-            cloudMainBack.setBackgroundResource(R.drawable.actlight)
+            webback.setBackgroundResource(R.drawable.actlight)
         }
     }
 

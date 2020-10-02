@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.androiddevfest.R
 import com.example.androiddevfest.SaveData
 import kotlinx.android.synthetic.main.cloud_fragment.*
+import kotlinx.android.synthetic.main.mobile_fragment.*
 
 class MobileFragment : Fragment() {
     lateinit var saveData: SaveData
@@ -31,9 +32,9 @@ class MobileFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MobileViewModel::class.java)
         saveData = SaveData(this.requireContext())
         if (saveData.loadDarkModeState()){
-            cloudMainBack.setBackgroundResource(R.drawable.gradient_dark)
+            mobileback.setBackgroundResource(R.drawable.gradient_dark)
         }else{
-            cloudMainBack.setBackgroundResource(R.drawable.actlight)
+            mobileback.setBackgroundResource(R.drawable.actlight)
         }
     }
 
