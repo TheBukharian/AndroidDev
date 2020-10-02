@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androiddevfest.BuildConfig
+import com.example.androiddevfest.ChatActivity
 import com.example.androiddevfest.R
 import com.example.androiddevfest.SaveData
 import com.google.firebase.database.DataSnapshot
@@ -116,6 +117,13 @@ class Faq : AppCompatActivity() {
                         Log.d("question", "$it")
 
                     }
+                }
+                adapterFaq.setOnItemClickListener { item, view ->
+                    val questionItem = item as Questions
+                    val intent=Intent(view.context,ChatActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
                 }
                 questionsRecycler.adapter = adapterFaq
             }
