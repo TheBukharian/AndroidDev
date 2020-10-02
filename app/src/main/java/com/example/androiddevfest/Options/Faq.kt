@@ -11,10 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androiddevfest.BuildConfig
-import com.example.androiddevfest.ChatActivity
-import com.example.androiddevfest.R
-import com.example.androiddevfest.SaveData
+import com.example.androiddevfest.*
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -24,6 +21,7 @@ import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import com.yalantis.phoenix.PullToRefreshView
 import kotlinx.android.synthetic.main.activity_faq.*
+import kotlinx.android.synthetic.main.activity_speakers.*
 import kotlinx.android.synthetic.main.question_item.view.*
 
 
@@ -52,6 +50,11 @@ class Faq : AppCompatActivity() {
                 saveData.setDarkNodeState(false)
                 darkOff()
             }
+        }
+        arrowfaq.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }
 
         val mPullToRefreshView = findViewById<PullToRefreshView>(R.id.pull_to_refresh)
@@ -119,7 +122,6 @@ class Faq : AppCompatActivity() {
                     }
                 }
                 adapterFaq.setOnItemClickListener { item, view ->
-                    val questionItem = item as Questions
                     val intent=Intent(view.context,ChatActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -167,7 +169,7 @@ class Faq : AppCompatActivity() {
     private fun sendInfo() {
         var oorder = saveData.getCount()
         val ref = FirebaseDatabase.getInstance().getReference("/questions").push()
-        val questionText = QuestionsData(Question, Name)
+        val questionText = QuestionsData(Question, Name,oorder)
         saveData.setCount(++oorder)
 
 
@@ -189,7 +191,7 @@ class Questions(val dataa: QuestionsData): Item<GroupieViewHolder>() {
 
 
         viewHolder.itemView.faqTxt.text = dataa.question
-        viewHolder.itemView.faqNum.text = saveData.getCount().toString()
+        viewHolder.itemView.faqNum.text = dataa.order.toString()
 
 
     }
@@ -199,7 +201,7 @@ class Questions(val dataa: QuestionsData): Item<GroupieViewHolder>() {
     }
 }
 
-class QuestionsData(val question: String, val name: String){
-    constructor():this("", "")
+class QuestionsData(val question: String, val name: String,val order : Int){
+    constructor():this("", "", 0)
 
 }

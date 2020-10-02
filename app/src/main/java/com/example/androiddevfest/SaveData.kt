@@ -9,11 +9,11 @@ class SaveData(context:Context) {
 
     fun setCount(order:Int){
         val editor=sharedPreferences.edit()
-        editor.putInt("b",order)
+        editor.putInt("c",order)
         editor.apply()
     }
     fun  getCount():Int{
-        val order =sharedPreferences.getInt("b",1)
+        val order =sharedPreferences.getInt("c",1)
         return (order)
     }
 
