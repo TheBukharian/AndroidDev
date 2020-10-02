@@ -23,6 +23,8 @@ class ChatActivity : AppCompatActivity() {
         adapterFaq.add(ChatItem())
         adapterFaq.add(ChatItem())
         adapterFaq.add(ChatItem())
+        adapterFaq.add(ChatItem())
+
         chatRecycler.adapter = adapterFaq
 
 
