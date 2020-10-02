@@ -43,7 +43,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/actBar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -52,41 +52,63 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         >
+
         <TextView
+            android:id="@+id/pageTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home"
-            android:textSize="30dp"
-            android:textColor="#787878"
-            android:gravity="center_vertical"
+            android:layout_height="match_parent"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="7dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
             android:fontFamily="sans-serif-light"
-            />
+            android:gravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            android:text="Home"
+            android:textColor="#787878"
+            android:textSize="30dp" />
+
         <ImageButton
             android:id="@+id/lightBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/darklight"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="130dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toStartOf="@+id/shareBtn"
             android:background="@drawable/bar_btns"
-            android:scaleY="0.7"
             android:scaleX="0.7"
-            />
+            android:scaleY="0.7"
+            android:src="@drawable/light" />
 
         <ImageButton
             android:id="@+id/shareBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:src="@android:drawable/ic_menu_share"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="2dp"
             android:background="@drawable/bar_btns"
-            />
+            android:src="@android:drawable/ic_menu_share" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/actBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#FFFFFF" />
 
     <TextView
         android:id="@+id/text"
@@ -108,19 +130,18 @@
         />
 
 
-
-
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="300dp"
         android:layout_height="155dp"
-        android:paddingTop="25dp"
         android:layout_above="@+id/introText"
+        android:layout_below="@+id/text"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:scaleY="1.2"
+        android:layout_marginTop="65dp"
+        android:paddingTop="25dp"
         android:scaleX="1.2"
+        android:scaleY="1.2"
         android:src="@drawable/kkk" />
 
     <TextView
@@ -150,10 +171,11 @@
         android:textColor="#6BFFFFFF"
         android:textSize="15dp"
         android:textStyle="normal" />
+
     <LinearLayout
         android:id="@+id/linkLayout"
         android:layout_width="350dp"
-        android:layout_height="37dp"
+        android:layout_height="27dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -161,40 +183,42 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
         android:weightSum="4">
+
         <ImageButton
             android:id="@+id/instaBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/instagram"
             android:backgroundTint="#00FFFFFF"
-            />
+            android:src="@drawable/instagram" />
+
         <ImageButton
             android:id="@+id/faceBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/facebook"
             android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/facebook"
 
             />
+
         <ImageButton
             android:id="@+id/youtubeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/youtube"
             android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/youtube"
 
             />
+
         <ImageButton
             android:id="@+id/twitterBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/twitter"
             android:backgroundTint="#00FFFFFF"
-            />
+            android:src="@drawable/twitter" />
 
     </LinearLayout>
 

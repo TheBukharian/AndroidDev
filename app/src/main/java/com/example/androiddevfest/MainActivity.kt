@@ -1,35 +1,31 @@
 package com.example.androiddevfest
 
-import android.content.Context
 import android.content.Intent
 import android.content.Intent.*
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.Color.TRANSPARENT
 import android.graphics.drawable.AnimationDrawable
 import android.net.Uri
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.example.androiddevfest.Options.*
+import com.example.androiddevfest.Utils.ConnectionType
+import com.example.androiddevfest.Utils.NetworkMonitorUtil
+import com.example.androiddevfest.Utils.PopupDialog
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.first_page_item.view.*
 import www.sanju.zoomrecyclerlayout.ZoomRecyclerLayout
-import android.view.View as View1
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var saveData : SaveData
+            private val networkMonitor = NetworkMonitorUtil(this)
+            lateinit var saveData : SaveData
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,6 +41,34 @@ class MainActivity : AppCompatActivity() {
             animationDrawable.setEnterFadeDuration(4000)
             animationDrawable.setExitFadeDuration(4000)
             animationDrawable.start()
+        }
+
+        networkMonitor.result = { isAvailable, type ->
+            runOnUiThread {
+                when (isAvailable) {
+                    true -> {
+                        when (type) {
+                            ConnectionType.Wifi -> {
+                                Log.i("NETWORK_MONITOR_STATUS", "Wifi Connection")
+                            }
+                            ConnectionType.Cellular -> {
+                                Log.i("NETWORK_MONITOR_STATUS", "Cellular Connection")
+                            }
+                            else -> { }
+                        }
+                    }
+                    false -> {
+
+                        val intent = Intent(this, PopupDialog::class.java)
+                        intent.putExtra("popuptitle", "Network Error")
+                        intent.putExtra("popuptext", "Something went wrong with your internet,please check if it is Turned On")
+                        intent.putExtra("popupbtn", "OK")
+                        intent.putExtra("darkstatusbar", false)
+                        startActivity(intent)
+                        Log.i("NETWORK_MONITOR_STATUS", "No Connection")
+                    }
+                }
+            }
         }
 
 
@@ -96,7 +120,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-
         val adapter=GroupAdapter<GroupieViewHolder>()
         adapter.add(FirstPageItem6())
         adapter.add(FirstPageItem5())
@@ -116,6 +139,15 @@ class MainActivity : AppCompatActivity() {
         myRecycler.isNestedScrollingEnabled = true
 
 
+
+    }
+    override fun onResume() {
+        super.onResume()
+        networkMonitor.register()
+    }
+    override fun onStop() {
+        super.onStop()
+        networkMonitor.unregister()
     }
 
     private fun darkSet(){
@@ -239,7 +271,7 @@ class FirstPageItem6: Item<GroupieViewHolder>(){
 //        viewHolder.itemView.cardImg.setImageResource(R.drawable.gradient_6)
         viewHolder.itemView.goBtn.setOnClickListener {
             val context=viewHolder.itemView.context
-            val intent=Intent(context,Location::class.java)
+            val intent=Intent(context,MapsActivity::class.java)
             context.startActivity(intent)
         }
     }

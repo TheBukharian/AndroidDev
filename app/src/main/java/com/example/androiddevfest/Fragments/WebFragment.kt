@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androiddevfest.R
+import com.example.androiddevfest.SaveData
+import kotlinx.android.synthetic.main.cloud_fragment.*
+import kotlinx.android.synthetic.main.web_fragment.*
 
 class WebFragment : Fragment() {
+    lateinit var saveData: SaveData
 
     companion object {
         fun newInstance() = WebFragment()
@@ -26,7 +30,12 @@ class WebFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(WebViewModel::class.java)
-
+        saveData = SaveData(this.requireContext())
+        if (saveData.loadDarkModeState()){
+            webback.setBackgroundResource(R.drawable.gradient_dark)
+        }else{
+            webback.setBackgroundResource(R.drawable.actlight)
+        }
     }
 
 }

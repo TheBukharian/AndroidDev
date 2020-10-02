@@ -7,67 +7,81 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Options.Agenda">
-    <LinearLayout
-        android:id="@+id/actBar"
+    <RelativeLayout
+        android:id="@+id/actBarAgenda"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#F1F1F1"
+        android:background="#60FFFFFF"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:elevation="7dp"
         >
-        <ImageButton
-            android:layout_marginStart="10dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/arrow"
-            android:scaleType="centerInside"
-            android:foregroundGravity="center_vertical"
-            android:background="#F1F1F1"
 
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Agenda"
-            android:textSize="30dp"
-            android:textColor="#787878"
-            android:gravity="center_vertical"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="7dp"
-            android:fontFamily="sans-serif-light"
-            />
         <ImageButton
-            android:id="@+id/lightBtn"
+            android:id="@+id/arrowAgenda"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:backgroundTint="#00FFFFFF"
+            android:layout_marginBottom="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/arrowAgenda"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical"
+            android:text="Agenda"
+            android:textColor="#787878"
+            android:textSize="30dp" />
+
+        <ImageButton
+            android:id="@+id/lightBtnAgenda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/darklight"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="135dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toStartOf="@+id/shareBtn"
             android:background="@drawable/bar_btns"
-            android:scaleY="0.7"
             android:scaleX="0.7"
-            />
+            android:scaleY="0.7"
+            android:src="@drawable/light" />
 
         <ImageButton
             android:id="@+id/shareBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:src="@android:drawable/ic_menu_share"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="2dp"
             android:background="@drawable/bar_btns"
-            />
+            android:src="@android:drawable/ic_menu_share" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/actBar"
+        android:layout_below="@+id/actBarAgenda"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -87,7 +101,7 @@
                 app:tabMaxWidth="0dp"
                 android:background="@color/WhiteText"
                 app:tabMode="fixed"
-                app:tabTextColor="#000000" />
+                app:tabTextColor="#787878" />
 
 
         </com.google.android.material.appbar.AppBarLayout>

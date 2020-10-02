@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    app:cardCornerRadius="20dp"
+    android:elevation="30dp"
+    >
+    
+    <RelativeLayout
+        android:id="@+id/expandRelative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/sponsorLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/divider2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:scaleType="centerInside"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/gdg" />
+
+        <TextView
+            android:id="@+id/sponsorName"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/sponsorLogo"
+            android:layout_alignBottom="@+id/sponsorLogo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="51dp"
+            android:layout_toEndOf="@+id/sponsorLogo"
+            android:gravity="center"
+            android:paddingEnd="10dp"
+            android:text="Google GDG"
+            android:textColor="#351515"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/moreBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/sponsorName"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:text="more..." />
+
+        <ImageView
+            android:id="@+id/lo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/lo"
+            android:background="@drawable/gradient_6"
+            android:layout_marginTop="2dp"
+
+            />
+        
+        
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
