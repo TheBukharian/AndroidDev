@@ -4,7 +4,7 @@ GDG Company.
 
 <img src="/1.png" width="270" height="550"/>    <img src="/3.png" width="270" height="550"/>    <img src="/5.png" width="270" height="550"/> 
 <img src="/2.png" width="270" height="550"/>    <img src="/4.png" width="270" height="550"/>    <img src="/6.png" width="270" height="550"/>
-<img src="/7.png" width="270" height="550"/>
+<img src="/7.png" width="270" height="550"/>    
 ---
 
 **Features**
@@ -13,7 +13,7 @@ GDG Company.
 - Firebase Implementation
 - Smart Pull Refresh 
 - Dark Mode Switch
-- Network Connection Check
+- Network Connection ( Justs cut off your Internet to see animated Dialog)
 
 **Used Libraries**
 - Groupie
@@ -25,6 +25,8 @@ GDG Company.
 - https://github.com/wasabeef for awesome ui components
 - https://github.com/Spikeysanju for Beautiful RecyclerView 
 - https://github.com/johncodeos-blog John Codes UI components
+- and many others...
+
 
 License
 -------
