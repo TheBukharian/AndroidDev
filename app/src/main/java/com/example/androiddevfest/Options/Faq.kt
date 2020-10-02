@@ -3,6 +3,7 @@ package com.example.androiddevfest.Options
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
@@ -20,8 +21,8 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
+import com.yalantis.phoenix.PullToRefreshView
 import kotlinx.android.synthetic.main.activity_faq.*
-import kotlinx.android.synthetic.main.activity_speakers.*
 import kotlinx.android.synthetic.main.question_item.view.*
 
 
@@ -46,33 +47,33 @@ class Faq : AppCompatActivity() {
             if (!saveData.loadDarkModeState()) {
                 saveData.setDarkNodeState(true)
                 darkSet()
-//                finish()
-//                overridePendingTransition(0, 0)
-//                startActivity(intent)
-//                overridePendingTransition(0, 0)
-
-
             }else{
                 saveData.setDarkNodeState(false)
                 darkOff()
-//                finish()
-//                overridePendingTransition(0, 0)
-//                startActivity(intent)
-//                overridePendingTransition(0, 0)
             }
         }
+
+        val mPullToRefreshView = findViewById<PullToRefreshView>(R.id.pull_to_refresh)
+        mPullToRefreshView.setOnRefreshListener(PullToRefreshView.OnRefreshListener {
+            mPullToRefreshView.postDelayed(Runnable { mPullToRefreshView.setRefreshing(false) },1000)
+        })
+
+
+
+
+
         shareBtnfaq.setOnClickListener{
             try{
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT,"GDG APP by TheBukharian")
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "GDG APP by TheBukharian")
                 var shareMessage = "\nLet`s try this GDG application:\n\n"
                 shareMessage = shareMessage+ "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID+ "\n\n"
-                shareIntent.putExtra(Intent.EXTRA_TEXT,shareMessage)
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
                 startActivity(Intent.createChooser(shareIntent, "Share with "))
             }
-            catch (e:Exception){
-                Log.d("MainActivity","Couldn` t load the web site")
+            catch (e: Exception){
+                Log.d("MainActivity", "Couldn` t load the web site")
             }
         }
 
@@ -120,7 +121,7 @@ class Faq : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.d("GOOOOOOOSSSS","ERROR DATABASE")
+                Log.d("GOOOOOOOSSSS", "ERROR DATABASE")
             }
         })
     }
@@ -171,7 +172,7 @@ class Faq : AppCompatActivity() {
     }
 }
 
-class Questions( val dataa: QuestionsData): Item<GroupieViewHolder>() {
+class Questions(val dataa: QuestionsData): Item<GroupieViewHolder>() {
     lateinit var saveData: SaveData
 
 

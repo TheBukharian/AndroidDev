@@ -78,29 +78,43 @@
 
 
     </RelativeLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/questionsRecycler"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
+
+    <com.yalantis.phoenix.PullToRefreshView
+        android:id="@+id/pull_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/actBarfaq"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/questionsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+
+    </com.yalantis.phoenix.PullToRefreshView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:elevation="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="37dp"
         android:layout_marginEnd="37dp"
+        android:layout_marginBottom="37dp"
+        android:backgroundTint="#FFFFFF"
         android:clickable="true"
+        android:elevation="50dp"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 
