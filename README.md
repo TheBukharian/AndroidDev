@@ -3,7 +3,7 @@
 GDG Company.
 
 <img src="/1.png" width="270" height="550"/>    <img src="/3.png" width="270" height="550"/>    <img src="/5.png" width="270" height="550"/> 
-<img src="/2.png" width="270" height="550"/>    <img src="/4.png" width="270" height="550"/>    <img src="/6.png" width="270" height="550"/>
+<img src="/2.png" width="270" height="550"/>    <img src="/4.png" width="270" height="550"/>    
 <img src="/7.png" width="270" height="550"/>    
 ---
 
